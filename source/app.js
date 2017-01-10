@@ -1,10 +1,5 @@
 // Загружаем Konva
-var transport = new XMLHttpRequest();
-transport.open('get', './source/lib/konva.min.js', false);
-transport.send(null);
-var code = transport.responseText;
-eval(code);
-
+include( './source/lib/konva.min.js' );
 
 var stage = new Konva.Stage({
     container: 'container',
@@ -521,4 +516,13 @@ function save() {
 
         }
     }
+}
+
+function include( file ){
+    var transport = new XMLHttpRequest();
+    transport.open('get', file, false);
+    transport.send(null);
+    var code = transport.responseText;
+    eval(code);
+
 }
