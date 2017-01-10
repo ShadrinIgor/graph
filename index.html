@@ -1,0 +1,54 @@
+<!doctype html>
+<html ng-app="mainApp">
+<head>
+    <meta charset="utf-8">
+    <style>
+        .menu {
+            padding: 10px;
+            border: 1px solid #d6e9c6;
+            background-color: #dff0d8;
+            display: block;
+            position: absolute;
+            box-shadow: 0px 0px 5px 0px rgba( 100, 100, 100, 0.8 );
+        }
+
+        .menu div {cursor: pointer;}
+        .menu div:hover {background-color: #a8f0aa;}
+    </style>
+</head>
+<body>
+<div>
+    <h3>Как это работает?</h3>
+    <ol>
+        <li>Кликаем на зоне( обрамленной красной рамкой ) чтобы выставиь вершины</li>
+        <li>Кликаем на кнопку ребра, чтобы перейти в режим добавление ребер.</li>
+        <li>Водим мышкой между вершинами и когда ребра подсветится красным, кликаем мышкой на ней чтобы выставить ребро</li>
+        <li>Кликаем на вершина которая будет началом расчета, на всплывающем меню клкаем на ВЫДЕЛИТЬ ТОЧКУ ( она должна будет подстветится красным )</li>
+        <li>Для удаление вершины кликаем на нужной вершине, затем  на всплывающем меню клкаем на УДАЛИТЬ ТОЧКУ</li>
+        <li>Кликаем на еще одну вершина которая будет концом расчета ( она должна будет подстветится красным )</li>
+        <li>Нажимае на кнопку расчитать чтобы начать рассчет</li>
+        <li>Если все получилось, то вы должны увидеть
+            <ul>
+                <li>Минимальный путь должен подстветится зеленым</li>
+                <li>Фиолетовый шарик должен пройти от старта до финиша пути</li>
+                <li>затем фиолетовый шарик должен должен сделать обратный путь</li>
+                <li>Активируется кнопка СОХРАНИТЬ, которая делает запрос на NODE.js сервер, которы получает найденный путь и имитирует сохранение</li>
+            </ul>
+        </li>
+
+    </ol>
+</div>
+<br/>
+<button onClick="clearAll();">Очистить</button>&nbsp;
+<button disabled id="vertex" onClick="addPointer();">Вершины</button>&nbsp;<button  id="edge" onClick="addReb();">Ребра</button>&nbsp;<button onclick="calculate()">Расчитать</button>&nbsp;
+<button disabled id="saveButton" onClick="save();">Сохранить</button>
+<br/>
+<br/>
+<div id="container" style="width: 1000px;height:400px;border:1px solid #ff0000"></div>
+
+<div id="menus"></div>
+<!--script src="source/lib/konva.min.js"></script-->
+<script src="source/app.js"></script>
+
+</body>
+</html>
